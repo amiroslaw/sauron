@@ -1,0 +1,59 @@
+== Sauron
+
+[quote, Gandalf]
+____
+One ring to rule them all, one ring to bind them, one ring to lead them to their doom.
+____
+
+The snapshots of https://github.com/amiroslaw/dotfiles[my dotfiles]. This repository contains only the most essential configurations for programs and scripts. My goal is to make an ergonomic environment - mostly, I try to avoid using a mouse and automate the most commonly used actions. I like to follow the principles outlined in https://en.wikipedia.org/wiki/Unix_philosophy[Unix philosophy].
+
+=== Scripts
+The majority of my scripts are based on Lua(jit) with functional programming library https://github.com/Yonaba/Moses[Moses]. At the boot of the system I load utility functions from `init.lua`.
+
+----
+./
+├── clipster.lua
+├── lua/
+│   ├── init.lua
+│   ├── moses.list
+│   └── moses.lua
+├── mpvc
+├── mpv.lua
+├── note.lua
+├── pomodoro.lua
+├── sauron.sh
+├── scratchpad.sh
+├── screenshot.lua
+├── search.lua
+├── todo.lua
+└── url.lua
+----
+
+=== Multimedia
+Programs like Qutebrowser, Newsboat, and YTFZF have key bindings for two scripts that are responsible for managing multimedia - `url.lua`, `mpv.lua`. Scripts can be run from the terminal or using SXHKD (hotkey daemon). One of the functionalities is to save URLs in an `m3u` playlist and handle it from the Rofi menu.
+
+=== Task management
+I try to use the Pomodoro technique and GTD (Getting Things Done). TimeWarrior is a time tracker that can be easily integrated with Task Warrior. Tasks can be managed using a TUI application: https://github.com/kdheepak/taskwarrior-tui[taskwarrior-tui]. For Pomodoro, I built a script called `pomodoro.lua` that allows me to run tasks from Rofi and display a clock on the polybar.
+
+=== File hierarchy
+For managing my dots I use https://www.gnu.org/software/stow/manual/stow.html[stow], but by aware that I sync configuration between my desktop and laptop, so some directories have to be created manually and after that you can make aliases. In this case, the root folder can't be an alias.
+
+----
+./
+├── bspwm/
+├── fzf/
+├── mpv/
+├── newsboat/
+├── nvim/
+├── polybar/
+├── pqiv/
+├── qutebrowser/
+├── rofi/
+├── scripts/
+├── sxhkd/
+├── task/
+├── timewarrior/
+├── vifm/
+├── wezterm/
+└── ytfzf/
+----
